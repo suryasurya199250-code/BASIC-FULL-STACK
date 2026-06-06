@@ -1,4 +1,3 @@
-
 import {useState} from "react";
 import axios from "axios";
 import {Link,useNavigate} from "react-router-dom";
@@ -17,7 +16,10 @@ const submit=async(e)=>{
 e.preventDefault();
 
 try{
-await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`,form);
+await axios.post(
+`${import.meta.env.VITE_API_URL}/api/auth/register`,
+form
+);
 navigate("/");
 }catch(err){
 alert(err.response?.data?.message || "Register Failed");
