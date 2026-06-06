@@ -22,7 +22,7 @@ Authorization:`Bearer ${token}`
 
 const fetchFoods=async()=>{
 try{
-const res=await axios.get("http://localhost:5000/api/products",config);
+const res=await axios.get(`${import.meta.env.VITE_API_URL}/api/products`,config);
 setFoods(res.data);
 }catch(err){
 console.log(err);
@@ -38,11 +38,10 @@ e.preventDefault();
 
 try{
 if(editingId){
-await axios.put(`http://localhost:5000/api/products/${editingId}`,form,config);
+await axios.put(`${import.meta.env.VITE_API_URL}/api/products/${editingId}`,form,config);
 setEditingId(null);
 }else{
-await axios.post("http://localhost:5000/api/products",form,config);
-}
+await axios.post(`${import.meta.env.VITE_API_URL}/api/products`,form,config);
 
 setForm({
 name:"",
@@ -66,7 +65,7 @@ description:food.description
 
 const deleteFood=async(id)=>{
 try{
-await axios.delete(`http://localhost:5000/api/products/${id}`,config);
+await axios.delete(`${import.meta.env.VITE_API_URL}/api/products/${id}`,config);
 fetchFoods();
 }catch(err){
 console.log(err);
