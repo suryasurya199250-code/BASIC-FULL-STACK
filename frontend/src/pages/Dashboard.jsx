@@ -1,4 +1,3 @@
-
 import {useEffect,useState} from "react";
 import axios from "axios";
 
@@ -49,6 +48,7 @@ description:""
 });
 
 fetchFoods();
+}
 }catch(err){
 console.log(err);
 }
@@ -122,13 +122,21 @@ onChange={(e)=>setForm({...form,description:e.target.value})}
 <p>{food.description}</p>
 
 <div className="action-row">
-<button className="edit-btn" onClick={()=>editFood(food)}>
+
+<button
+className="edit-btn"
+onClick={()=>editFood(food)}
+>
 Edit
 </button>
 
-<button className="delete-btn" onClick={()=>deleteFood(food._id)}>
+<button
+className="delete-btn"
+onClick={()=>deleteFood(food._id)}
+>
 Delete
 </button>
+
 </div>
 
 </div>
